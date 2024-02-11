@@ -1,0 +1,16 @@
+version: '3.8'
+name: ha_v1_backend
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm run start:dev
+    volumes:
+      - .:/app/src
+      - /app/src/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    
